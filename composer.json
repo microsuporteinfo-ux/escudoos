@@ -1,0 +1,46 @@
+{
+    "name": "microsuporteinfo-ux/escudoos",
+    "description": "Sistema de Ordem de Serviço para Segurança Eletrônica",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^9.0",
+        "laravel/sanctum": "^3.2",
+        "laravel/tinker": "^2.8",
+        "twilio/sdk": "^7.0",
+        "stripe/stripe-php": "^10.0",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "google/apiclient": "^2.15",
+        "maatwebsite/excel": "^3.1"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.1",
+        "phpunit/phpunit": "^9.5.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-callback": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
